@@ -19,13 +19,17 @@ export default function LineChart({style}){
         ]
     };
 
+    let updateMousemove = (params) => {
+      console.log("updateMousemove",params)
+    }
+
     return(
         <EchartsComponent
             onInit={(instance) => setEcharts(instance)}
             style={style} 
             option={option}
             notMerge={true}
-            // eventsHandler={eventHandler}
+            eventsHandler={{ 'mousemove': updateMousemove}}
         />
     )
 }
